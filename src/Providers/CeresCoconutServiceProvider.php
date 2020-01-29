@@ -15,7 +15,7 @@ use Plenty\Modules\Webshop\Template\Providers\TemplateServiceProvider;
  * Class CeresCoconutServiceProvider
  * @package CeresCoconut\Providers
  */
-class CeresCoconutServiceProvider extends ServiceProvider
+class CeresCoconutServiceProvider extends TemplateServiceProvider
 {
     const PRIORITY = 0;
 
@@ -27,7 +27,7 @@ class CeresCoconutServiceProvider extends ServiceProvider
     public function boot(Twig $twig, Dispatcher $dispatcher, ConfigRepository $config)
     {
         $enabledOverrides = explode(", ", $config->get("CeresCoconut.templates.override"));
-         $this->overrideTemplate("Ceres::Customer/Components/Registration", "CeresCoconut::Customer/Components/Registration"); 
+         $this->overrideTemplate("Ceres::Customer.Components.Registration", "CeresCoconut::Customer.Components.Registration"); 
         // Override partials
         $dispatcher->listen('IO.init.templates', function (Partial $partial) use ($enabledOverrides)
         {
