@@ -12,7 +12,38 @@
                 </div>
             </div>
 
-     
+            <div class="col-sm-6" v-if="!guestMode">
+                <div class="input-unit" :class="{'no-bottom media-xs-d': modalElement}"  ref="passwordInput">
+                    <popper v-cloak trigger="focus" placement="bottom" ref="passwordHint">
+                        <template #handle>
+                            <input type="password" name="password" autocomplete="new-password" :id="'new-password-' + _uid" v-model="password">
+                        </template>
+
+                        <template #title>
+                            <div>
+                                {{ trans("Ceres::Template.regPasswordHintTitle") }}
+                            </div>
+                        </template>
+
+                        <template #content>
+                            <ul class="pl-3">
+                                <li>{{ trans("Ceres::Template.regPasswordHintLength") }}</li>
+                                <li>{{ trans("Ceres::Template.regPasswordHintDigit") }}</li>
+                                <li>{{ trans("Ceres::Template.regPasswordHintChar") }}</li>
+                            </ul>
+                        </template>
+                    </popper>
+
+                    <label :for="'new-password-' + _uid">{{ trans("Ceres::Template.regPassword") }}*</label>
+                </div>
+            </div>
+
+            <div class="col-sm-6 input-unit-group" v-if="!guestMode">
+                <div class="input-unit" :class="{'no-bottom': modalElement}" data-validate="ref">
+                    <input type="password" name="password-repeat" autocomplete="new-password" :id="'new-password-repeat-' + _uid" v-model="passwordRepeat" :data-validate-ref="'#new-password-' + _uid">
+                    <label :for="'new-password-repeat' + _uid">{{ trans("Ceres::Template.regRepeatPassword") }}*</label>
+                </div>
+            </div>
 
             <div class="col-12">
                 <address-input-group
