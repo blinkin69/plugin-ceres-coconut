@@ -9,7 +9,7 @@ use IO\Helper\TemplateContainer;
 use IO\Extensions\Functions\Partial;
 use IO\Services\ItemSearch\Helper\ResultFieldTemplate;
 use Plenty\Plugin\ConfigRepository;
-
+use Plenty\Modules\Webshop\Template\Providers\TemplateServiceProvider;
 
 /**
  * Class CeresCoconutServiceProvider
