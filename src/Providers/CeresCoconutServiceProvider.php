@@ -27,7 +27,8 @@ class CeresCoconutServiceProvider extends TemplateServiceProvider
     public function boot(Twig $twig, Dispatcher $dispatcher, ConfigRepository $config)
     {
         $enabledOverrides = explode(", ", $config->get("CeresCoconut.templates.override"));
-         $this->overrideTemplate("Ceres::Customer.Components.Registration", "CeresCoconut::Customer.Components.Registration"); 
+        
+         $this->overrideTemplate("Ceres::Basket.Components.BasketPreview", "CeresCoconut::Basket.Components.BasketPreview"); 
         // Override partials
         $dispatcher->listen('IO.init.templates', function (Partial $partial) use ($enabledOverrides)
         {
