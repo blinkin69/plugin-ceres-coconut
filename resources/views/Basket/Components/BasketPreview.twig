@@ -1,6 +1,6 @@
 <script type="x/template" data-component="basket-preview">
- <article class="cmp cmp-product-thumb">
-   <div :class="paddingClasses" :style="paddingInlineStyles">
+
+  
    <div class="basket-preview-wrapper h-100" :class="{ 'empty': !basketItems.length, 'open-hover': hover, 'open-right': !hover }">
         <div class="position-relative h-100">
             <div class="basket-preview d-flex flex-column flex-nowrap bg-white shadow w-100">
@@ -39,7 +39,6 @@
 
                         <slot name="before-basket-totals"></slot>
 <coupon template="#vue-coupon"></coupon>
-
                         <basket-totals>
                             <template #before-item-sum>
                                 <slot name="before-item-sum"></slot>
@@ -88,6 +87,5 @@
         </div>
         <div class="basket-preview-overlay" v-toggle-basket-preview></div>
     </div>
-    </div>
- </article>
+
 </script>
